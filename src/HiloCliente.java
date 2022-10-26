@@ -8,6 +8,11 @@ public class HiloCliente extends Thread{
     private Socket socket;
     private BufferedReader input;
 
+    /**
+     * Constructor del hilo para el cliente
+     * @param s Socket de la conexion que se esta usando
+     * @throws IOException
+     */
     public HiloCliente(Socket s) throws IOException {
         this.socket = s;
         this.input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -15,6 +20,10 @@ public class HiloCliente extends Thread{
     }
 
     @Override
+    /**
+     * Se escucha de forma constante el input por parte del servidor,
+     * asi se pueden recibir los mensajes aunque se este escribiendo
+     */
     public void run(){
         try{
             while(true){

@@ -5,6 +5,11 @@ import java.util.Scanner;
 
 public class Cliente {
 
+    /**
+     * Se gestiona la escritura de datos desde el cliente
+     * Se lanza un hilo para controlar la recepcion de datos
+     * @param args
+     */
     public static void main(String[] args) {
         try(Socket socket = new Socket("localhost" , 5666)){
             //Para Leer Input
@@ -36,6 +41,7 @@ public class Cliente {
                     }
                 }
             }while(!input.equals("desc"));
+            os.println(nombre + " se ha desconectado");
 
         } catch (UnknownHostException e) {
             throw new RuntimeException(e);
