@@ -20,11 +20,12 @@ public class HiloServidor extends Thread{
         this.listaHilos = hilos;
     }
 
-    @Override
     /**
+     * Funcion Run de la clase HiloServidor
      * Se espera a recibir input de un usuario y se llama a la funcion mensajear()
      * cuando se recibe input
      */
+    @Override
     public void run(){
         try {
             //Leer Input
@@ -44,6 +45,7 @@ public class HiloServidor extends Thread{
             }
 
         } catch (IOException e) {
+            System.out.println("Ha ocurrido un error inesperado. Por favor, vuelve iniciar el servidor");
             throw new RuntimeException(e);
         }
     }

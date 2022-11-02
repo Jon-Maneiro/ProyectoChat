@@ -19,11 +19,13 @@ public class HiloCliente extends Thread{
 
     }
 
-    @Override
     /**
+     * Funcion run de la clase HiloCliente
      * Se escucha de forma constante el input por parte del servidor,
-     * asi se pueden recibir los mensajes aunque se este escribiendo
+     * asi se pueden recibir los mensajes aunque el usuario este escribiendo en la ejecución
+     * de la clase Cliente
      */
+    @Override
     public void run(){
         try{
             while(true){
@@ -31,11 +33,13 @@ public class HiloCliente extends Thread{
                 System.out.println(respuesta);
             }
         } catch (IOException e) {
+            System.out.println("Ha ocurrido un error inesperado. Por favor, vuelve a conectarte");
             throw new RuntimeException(e);
         } finally{
             try{
                 input.close();
             } catch (IOException e) {
+                System.out.println("Ha ocurrido un error inesperado. Por favor, vuelve a conectarte");
                 throw new RuntimeException(e);
             }
         }

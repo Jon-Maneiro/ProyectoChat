@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class Cliente {
 
     /**
+     * Ejecucion de la clase Cliente
      * Se gestiona la escritura de datos desde el cliente
      * Se lanza un hilo para controlar la recepcion de datos
      * @param args
@@ -44,8 +45,10 @@ public class Cliente {
             os.println(nombre + " se ha desconectado");
 
         } catch (UnknownHostException e) {
+            System.out.println("Ha ocurrido un error inesperado. Por favor, vuelve a conectarte");
             throw new RuntimeException(e);
         } catch (IOException e) {
+            System.out.println("Ha ocurrido un error inesperado. Por favor, vuelve a conectarte");
             throw new RuntimeException(e);
         }
 
